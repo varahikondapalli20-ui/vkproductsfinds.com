@@ -1,4 +1,5 @@
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "VK Affiliate | Turn Traffic Into Revenue",
@@ -9,7 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-black font-sans text-white antialiased">{children}</body>
+      <body className="bg-black font-sans text-white antialiased">
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

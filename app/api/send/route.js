@@ -32,7 +32,7 @@ export async function POST(request) {
 
     await resend.emails.send({
       from: "VK Affiliate <onboarding@resend.dev>",
-      to: "varahikondapalli20@gmail.com",
+      to: process.env.CONTACT_EMAIL || "varahikondapalli20@gmail.com",
       subject: "New Subscriber - VK Affiliate",
       html: `<p>New subscription: ${escapeHtml(email)}</p>`,
     });

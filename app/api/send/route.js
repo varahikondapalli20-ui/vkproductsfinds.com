@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")
@@ -29,6 +27,8 @@ export async function POST(request) {
         { status: 500 }
       );
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
       from: "VK Affiliate <onboarding@resend.dev>",
